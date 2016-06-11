@@ -1,5 +1,7 @@
 <?php
 namespace GoogleAuth;
+use \Google_Client;
+use Cake\Core\Configure;
 
 class GoogleAuth extends Google_Client
 {
