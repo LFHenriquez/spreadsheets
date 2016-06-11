@@ -20,5 +20,11 @@
         "psr-4": {
             "GoogleAuth\\": "src"
         }
+    },
+    "autoload-dev": {
+    	"psr-4": {
+            "GoogleAuth\\Test\\": "tests",
+            "Cake\\Test\\" : "vendor/cakephp/cakephp/test"
+    	}
     }
 }
