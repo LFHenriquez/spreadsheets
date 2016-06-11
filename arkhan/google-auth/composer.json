@@ -1,0 +1,23 @@
+{
+    "name": "arkhan/google-auth",
+    "type": "library",
+    "description": "Google PHP Client",
+    "keywords": ["google"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Leonard Henriquez",
+            "email": "leonard.henriquez@edhec.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "google/apiclient": "^2.0.0@RC"
+    },
+    "autoload": {
+        "psr-4": {
+            "GoogleAuth\\": "src"
+        }
+    }
+}
