@@ -17,7 +17,7 @@ class Spreadsheets
     {
         $this->client = $client;
         $this->service = new Google_Service_Sheets($client);
-        $this->$spreadsheetsValues = $service->spreadsheets_values;
+        $this->$spreadsheetsValues = $this->service->spreadsheets_values;
         $this->spreadsheetId = $spreadsheetId;
     }
 
@@ -25,7 +25,7 @@ class Spreadsheets
 	{
         $indices = $this->header($sheet);
         $range = $sheet."!A2:".$this->getNameFromNumber(count($indices));
-        $response = $spreadsheetsValues->get($spreadsheetId, $range);
+        $response = $this->spreadsheetsValues->get($this->spreadsheetId, $range);
         $values = $response->getValues();
         foreach ($values as $value)
         {
@@ -42,7 +42,7 @@ class Spreadsheets
     {
         $indices = $this->header($sheet);
         $range = $sheet."!A2:".$this->getNameFromNumber(count($indices));
-        $response = $spreadsheetsValues->get($spreadsheetId, $range);
+        $response = $this->spreadsheetsValues->get($this->spreadsheetId, $range);
         $values = $response->getValues();
         $valueIndex = 1;
         foreach ($values as $value) {
@@ -55,7 +55,7 @@ class Spreadsheets
                 $range = $sheet."!".$cell.":".$cell;
                 $valueRange->setRange($range);
                 $valueRange->setValues([[$newValue]]);
-                $spreadsheetsValues->update($spreadsheetId, $range, $valueRange, ['valueInputOption' => 'USER_ENTERED']);
+                $this->spreadsheetsValues->update($this->spreadsheetId, $range, $valueRange, ['valueInputOption' => 'USER_ENTERED']);
             }
         }
     }
@@ -63,7 +63,7 @@ class Spreadsheets
     private function header($sheet)
     {
         $range = $sheet."!1:1";
-        $response = $spreadsheetsValues->get($spreadsheetId, $range);
+        $response = $this->spreadsheetsValues->get($this->spreadsheetId, $range);
         $row = $response->getValues();
         foreach ($row[0] as $index => $title) {
             $indices[$title] = $index;
