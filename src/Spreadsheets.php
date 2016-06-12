@@ -17,7 +17,7 @@ class Spreadsheets
     {
         $this->client = $client;
         $this->service = new Google_Service_Sheets($client);
-        $this->$spreadsheetsValues = $this->service->spreadsheets_values;
+        $this->spreadsheetsValues = $this->service->spreadsheets_values;
         $this->spreadsheetId = $spreadsheetId;
     }
 
