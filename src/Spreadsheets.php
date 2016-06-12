@@ -1,7 +1,10 @@
 <?php
 namespace Spreadsheets;
+use GoogleAuth\GoogleAuth;
 use \Google_Client;
-use Cake\Core\Configure;
+use \Google_Service_Sheets;
+use \Google_Auth_AssertionCredentials;
+use \Google_Service_Sheets_ValueRange;
 
 class Spreadsheets
 {
